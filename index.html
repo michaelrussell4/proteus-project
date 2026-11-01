@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proteus Scriptorium · Curated Scripture &amp; Study EPUB Editions</title>
+  <meta name="description" content="Download handcrafted, Kindle Paperwhite-optimized EPUB3 editions of Latter-day Saint scripture, critical study collations, biblical apocrypha, and Restoration classics.">
+  <meta name="theme-color" content="#1c1917">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Proteus Scriptorium · Curated Scripture &amp; Study EPUBs">
+  <meta property="og:description" content="Free, non-commercial digital library of computational scripture, textual collations, and public-domain Restoration classics. Optimized for Kindle Paperwhite &amp; modern e-readers.">
+  <meta property="og:image" content="covers/book-of-mormon-master-study.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <nav class="top-nav">
+    <div class="wrap top-nav-inner">
+      <a class="nav-brand" href="#top">
+        <span class="brand-crest">✦</span>
+        <span class="brand-name">Proteus <span>Scriptorium</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#editions">Editions</a>
+        <a href="#how-to-read">E-Reader Guide</a>
+        <a href="#about">About</a>
+        <a href="#attribution">Attribution</a>
+        <button id="theme-toggle" class="btn-theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <span class="theme-icon-light" aria-hidden="true">☀️</span>
+          <span class="theme-icon-dark" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="top" class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pill-dot"></span>
+          <span>Free &amp; Non-Commercial Digital Library</span>
+        </div>
+        <h1 class="hero-title">Scripture &amp; Classics,<br>Engineered for Your E-Reader</h1>
+        <p class="hero-lede">
+          Curated, commercial-grade EPUB3 editions of the Latter-day Saint scriptural canon, intertextual collations, extra-canonical apocrypha, and 19th-century classics.
+          Every volume is hand-crafted and validated with zero errors for <strong>Amazon Kindle Paperwhite</strong> and modern reading devices.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">11</span>
+            <span class="stat-label">Curated Volumes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">38.2 MB</span>
+            <span class="stat-label">Total Library Size</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Public Domain &amp; Free</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">EPUB3</span>
+            <span class="stat-label">Kindle Pop-Up Notes</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-row">
+          <a class="btn btn-primary btn-hero" href="#editions">Browse Editions ↓</a>
+          <a class="btn btn-outline btn-hero" href="#how-to-read">Send-to-Kindle Guide</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Catalog Controls -->
+  <section id="editions" class="catalog-section">
+    <div class="controls-bar">
+      <div class="wrap controls-inner">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/>
+          </svg>
+          <input type="search" id="catalog-search" class="search-input" placeholder="Search by title, topic, author, or keyword…" aria-label="Search editions" autocomplete="off">
+          <button type="button" id="search-clear" class="search-clear" aria-label="Clear search" hidden>×</button>
+        </div>
+
+        <div class="filter-chips" role="group" aria-label="Filter by collection">
+          <button class="chip" data-filter="all" aria-pressed="true">All Editions <span class="chip-count">(11)</span></button><button class="chip" data-filter="study-editions" aria-pressed="false">Study Editions <span class="chip-count">(4)</span></button><button class="chip" data-filter="standard-works" aria-pressed="false">Standard Works <span class="chip-count">(3)</span></button><button class="chip" data-filter="apocrypha" aria-pressed="false">Apocrypha & Ancient Texts <span class="chip-count">(1)</span></button><button class="chip" data-filter="literature" aria-pressed="false">Restoration Literature <span class="chip-count">(2)</span></button><button class="chip" data-filter="reading-guides" aria-pressed="false">Reading Guides <span class="chip-count">(1)</span></button>
+        </div>
+
+        <div class="catalog-summary-bar">
+          <span id="results-count">Showing <strong>11</strong> editions</span>
+          <div class="sort-wrapper">
+            <label for="catalog-sort">Sort by:</label>
+            <select id="catalog-sort" class="sort-select">
+              <option value="featured">Featured Selections</option>
+              <option value="title">Title (A–Z)</option>
+              <option value="size-desc">File Size (Largest first)</option>
+              <option value="size-asc">File Size (Smallest first)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editions Grid -->
+    <div class="wrap">
+      <div id="books-grid" class="books-grid">
+        
+        <article class="book-card" data-id="book-of-mormon-master-study" data-collection="study-editions" data-search="the book of mormon: master study edition red-letter divine speech, byu onomasticon etymologies &amp; 19th-century discourse citations the flagship relational study volume combining red-letter speech of christ (✦), linguistic name etymologies (◈), and early restoration sermon citations ([★]). study editions flagship study edition red-letter divine speech highlights for christ and the father byu onomasticon linguistic root definitions for all proper names pre-1960 sermon citation cross-references and excerpts over 4,000 interactive modal pop-up footnotes">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/book-of-mormon-master-study.png" alt="Cover art for The Book of Mormon: Master Study Edition" width="240" height="360" loading="lazy">
+            <span class="book-badge">Flagship Study Edition</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Study Editions</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>5.69 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/book-of-mormon-master-study.epub" download>The Book of Mormon: Master Study Edition</a></h3>
+            <p class="book-subtitle">Red-Letter Divine Speech, BYU Onomasticon Etymologies &amp; 19th-Century Discourse Citations</p>
+            <p class="book-description">The flagship relational study volume combining red-letter speech of Christ (✦), linguistic name etymologies (◈), and early Restoration sermon citations ([★]).</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/book-of-mormon-master-study.epub" download title="Download The Book of Mormon: Master Study Edition">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="book-of-mormon-master-study" aria-label="View details for The Book of Mormon: Master Study Edition">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="lds-standard-works-minimalist" data-collection="standard-works" data-search="the standard works (minimalist edition) the old testament • the new testament • the book of mormon • the doctrine and covenants • the pearl of great price all five scriptural volumes in one file, formatted for clean, distraction-free reading with verse numbers. the standard works complete canon omnibus all 5 standard works in a single lightweight file high-contrast typography tuned for e-ink displays fast chapter navigation via deep hierarchical table of contents zero footnote distractions for pure immersion reading">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/lds-standard-works-minimalist.png" alt="Cover art for The Standard Works (Minimalist Edition)" width="240" height="360" loading="lazy">
+            <span class="book-badge">Complete Canon Omnibus</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">The Standard Works</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>3.95 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/lds-standard-works-minimalist.epub" download>The Standard Works (Minimalist Edition)</a></h3>
+            <p class="book-subtitle">The Old Testament • The New Testament • The Book of Mormon • The Doctrine and Covenants • The Pearl of Great Price</p>
+            <p class="book-description">All five scriptural volumes in one file, formatted for clean, distraction-free reading with verse numbers.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/lds-standard-works-minimalist.epub" download title="Download The Standard Works (Minimalist Edition)">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="lds-standard-works-minimalist" aria-label="View details for The Standard Works (Minimalist Edition)">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="complete-apocrypha-pseudepigrapha-compendium" data-collection="apocrypha" data-search="complete apocrypha &amp; pseudepigrapha compendium deuterocanon, enochic literature, second temple pseudepigrapha, nt apocrypha &amp; apostolic fathers 99 extra-canonical and second temple texts (1.27m words) with historical provenance and veracity dossiers for each book. apocrypha &amp; ancient texts 99 ancient works 99 complete ancient works in a single unified volume 1,376 chapters and 1,169 pop-up scholarly notes historical veracity &amp; provenance dossiers for every book zero duplicate entries, carefully harmonized typography">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/complete-apocrypha-pseudepigrapha-compendium.png" alt="Cover art for Complete Apocrypha &amp; Pseudepigrapha Compendium" width="240" height="360" loading="lazy">
+            <span class="book-badge">99 Ancient Works</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Apocrypha &amp; Ancient Texts</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>3.56 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/complete-apocrypha-pseudepigrapha-compendium.epub" download>Complete Apocrypha &amp; Pseudepigrapha Compendium</a></h3>
+            <p class="book-subtitle">Deuterocanon, Enochic Literature, Second Temple Pseudepigrapha, NT Apocrypha &amp; Apostolic Fathers</p>
+            <p class="book-description">99 extra-canonical and Second Temple texts (1.27M words) with historical provenance and veracity dossiers for each book.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/complete-apocrypha-pseudepigrapha-compendium.epub" download title="Download Complete Apocrypha &amp; Pseudepigrapha Compendium">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="complete-apocrypha-pseudepigrapha-compendium" aria-label="View details for Complete Apocrypha &amp; Pseudepigrapha Compendium">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="complete-lds-literature-compendium" data-collection="literature" data-search="the complete restoration literature compendium all 71 historical volumes of early latter-day saint theology, history &amp; discourse comprehensive 71-volume library (5.91m words) spanning foundational theology, history, journals, and pioneer writings. restoration literature 71 volumes omnibus 71 full books across 1,982 chapters (5.91m words) 7 structured thematic divisions with master table of contents 3,276 interactive pop-up footnotes and source citations includes roberts, talmage, pratt, young, smith, and taylor">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/complete-lds-literature-compendium.png" alt="Cover art for The Complete Restoration Literature Compendium" width="240" height="360" loading="lazy">
+            <span class="book-badge">71 Volumes Omnibus</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Restoration Literature</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>15.2 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/complete-lds-literature-compendium.epub" download>The Complete Restoration Literature Compendium</a></h3>
+            <p class="book-subtitle">All 71 Historical Volumes of Early Latter-day Saint Theology, History &amp; Discourse</p>
+            <p class="book-description">Comprehensive 71-volume library (5.91M words) spanning foundational theology, history, journals, and pioneer writings.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/complete-lds-literature-compendium.epub" download title="Download The Complete Restoration Literature Compendium">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="complete-lds-literature-compendium" aria-label="View details for The Complete Restoration Literature Compendium">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="foundational-lds-classics-anthology" data-collection="literature" data-search="foundational classics of the restoration a nine-volume doctrinal omnibus of landmark doctrinal works nine essential doctrinal works by talmage, pratt, and early church leaders with 3,276 pop-up notes. restoration literature 9 doctrinal classics 9 foundational volumes in one unified omnibus 3,276 recovered pop-up footnotes and citations verified chapter sequences and complete unabridged text essential reading for serious gospel scholarship">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/foundational-lds-classics-anthology.png" alt="Cover art for Foundational Classics of the Restoration" width="240" height="360" loading="lazy">
+            <span class="book-badge">9 Doctrinal Classics</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Restoration Literature</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>2.99 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/foundational-lds-classics-anthology.epub" download>Foundational Classics of the Restoration</a></h3>
+            <p class="book-subtitle">A Nine-Volume Doctrinal Omnibus of Landmark Doctrinal Works</p>
+            <p class="book-description">Nine essential doctrinal works by Talmage, Pratt, and early church leaders with 3,276 pop-up notes.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/foundational-lds-classics-anthology.epub" download title="Download Foundational Classics of the Restoration">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="foundational-lds-classics-anthology" aria-label="View details for Foundational Classics of the Restoration">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="book-of-mormon-historical-variants" data-collection="study-editions" data-search="book of mormon: historical textual variants word-level collation across eight major editions (1830–2013) comprehensive collation comparing the book of mormon text across eight historic editions from 1830 to 2013. study editions critical apparatus covers 8 major print editions from 1830 to 2013 inline critical apparatus via kindle pop-ups grammar, orthography, and word substitutions tracked scholarly preface explaining editorial history">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/book-of-mormon-historical-variants.png" alt="Cover art for Book of Mormon: Historical Textual Variants" width="240" height="360" loading="lazy">
+            <span class="book-badge">Critical Apparatus</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Study Editions</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>1.35 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/book-of-mormon-historical-variants.epub" download>Book of Mormon: Historical Textual Variants</a></h3>
+            <p class="book-subtitle">Word-Level Collation Across Eight Major Editions (1830–2013)</p>
+            <p class="book-description">Comprehensive collation comparing the Book of Mormon text across eight historic editions from 1830 to 2013.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/book-of-mormon-historical-variants.epub" download title="Download Book of Mormon: Historical Textual Variants">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="book-of-mormon-historical-variants" aria-label="View details for Book of Mormon: Historical Textual Variants">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="book-of-mormon-1830-narrative" data-collection="standard-works" data-search="the book of mormon (1830 edition) continuous narrative edition the original 1830 palmyra edition formatted as a continuous literary narrative without modern verse breaks, with tap-to-see verse ranges. the standard works 1830 palmyra text original 1830 chapter arrangements and continuous prose bidirectional pop-up verse references uncluttered reading experience optimized for kindle original preface and historical testimony pages">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/book-of-mormon-1830-narrative.png" alt="Cover art for The Book of Mormon (1830 Edition)" width="240" height="360" loading="lazy">
+            <span class="book-badge">1830 Palmyra Text</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">The Standard Works</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>1.02 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/book-of-mormon-1830-narrative.epub" download>The Book of Mormon (1830 Edition)</a></h3>
+            <p class="book-subtitle">Continuous Narrative Edition</p>
+            <p class="book-description">The original 1830 Palmyra edition formatted as a continuous literary narrative without modern verse breaks, with tap-to-see verse ranges.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/book-of-mormon-1830-narrative.epub" download title="Download The Book of Mormon (1830 Edition)">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="book-of-mormon-1830-narrative" aria-label="View details for The Book of Mormon (1830 Edition)">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="top-1000-cited-verses" data-collection="study-editions" data-search="the top 1,000 cited verses of the restoration ranked by 19th-century citation frequency (1830–1886) with sermon profiles the most-quoted scriptures in early restoration history, ranked by frequency with pop-up discourse excerpts. study editions historical analytics ranked list of the top 1,000 cited scriptures (1830–1886) speaker citation breakdown (brigham young, john taylor, orson pratt, etc.) historical discourse excerpts embedded in pop-up notes fascinating statistical window into early church preaching">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/top-1000-cited-verses.png" alt="Cover art for The Top 1,000 Cited Verses of the Restoration" width="240" height="360" loading="lazy">
+            <span class="book-badge">Historical Analytics</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Study Editions</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>2.48 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/top-1000-cited-verses.epub" download>The Top 1,000 Cited Verses of the Restoration</a></h3>
+            <p class="book-subtitle">Ranked by 19th-Century Citation Frequency (1830–1886) with Sermon Profiles</p>
+            <p class="book-description">The most-quoted scriptures in early Restoration history, ranked by frequency with pop-up discourse excerpts.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/top-1000-cited-verses.epub" download title="Download The Top 1,000 Cited Verses of the Restoration">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="top-1000-cited-verses" aria-label="View details for The Top 1,000 Cited Verses of the Restoration">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="scriptures" data-collection="standard-works" data-search="the scriptures (minimal canon) clean, high-contrast kindle edition of the lds canon high-contrast, lightweight single-volume edition of the lds canon engineered for rapid e-ink navigation. the standard works fast-navigation canon ultra-lightweight dom footprint for maximum battery &amp; page speed instant book-to-chapter index classic typography with drop caps and clear verse anchors perfect for daily canon reading">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/scriptures.jpg" alt="Cover art for The Scriptures (Minimal Canon)" width="240" height="360" loading="lazy">
+            <span class="book-badge">Fast-Navigation Canon</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">The Standard Works</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>3.07 MB</span>
+            </div>
+            <h3 class="book-title"><a href="data/scriptures.epub" download>The Scriptures (Minimal Canon)</a></h3>
+            <p class="book-subtitle">Clean, High-Contrast Kindle Edition of the LDS Canon</p>
+            <p class="book-description">High-contrast, lightweight single-volume edition of the LDS canon engineered for rapid e-ink navigation.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/scriptures.epub" download title="Download The Scriptures (Minimal Canon)">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="scriptures" aria-label="View details for The Scriptures (Minimal Canon)">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="bom-intertextual-parallels" data-collection="study-editions" data-search="book of mormon intertextual parallels word-level collation of brass plates isaiah &amp; the sermon at the temple against the king james bible side-by-side textual collation of brass plates isaiah (2 nephi 12–24) and the sermon at the temple (3 nephi 12–14) against the king james bible. study editions intertextual collation side-by-side isaiah 2–14 and matthew 5–7 comparisons word-level markup of variants and expansions instant kindle pop-up collation notes optimized for e-ink contrast">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/bom-intertextual-parallels.png" alt="Cover art for Book of Mormon Intertextual Parallels" width="240" height="360" loading="lazy">
+            <span class="book-badge">Intertextual Collation</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Study Editions</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>358 KB</span>
+            </div>
+            <h3 class="book-title"><a href="data/bom-intertextual-parallels.epub" download>Book of Mormon Intertextual Parallels</a></h3>
+            <p class="book-subtitle">Word-Level Collation of Brass Plates Isaiah &amp; The Sermon at the Temple Against the King James Bible</p>
+            <p class="book-description">Side-by-side textual collation of Brass Plates Isaiah (2 Nephi 12–24) and the Sermon at the Temple (3 Nephi 12–14) against the King James Bible.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/bom-intertextual-parallels.epub" download title="Download Book of Mormon Intertextual Parallels">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="bom-intertextual-parallels" aria-label="View details for Book of Mormon Intertextual Parallels">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+        <article class="book-card" data-id="early-modern-english-quick-guide" data-collection="reading-guides" data-search="reading old english scripture: a quick guide easy help with thou, ye, -eth, and the vocabulary of kjv &amp; book of mormon concise, reader-friendly handbook on early modern english pronouns, verb inflections, syntax, and false friends. reading guides language &amp; grammar plain-language breakdowns of archaic grammar glossary of tricky &#x27;false friend&#x27; vocabulary words one-page printable / bookmarkable reference chart fast and accessible read (~30 minutes)">
+          <div class="book-cover-wrap">
+            <img class="book-cover" src="covers/early-modern-english-quick-guide.png" alt="Cover art for Reading Old English Scripture: A Quick Guide" width="240" height="360" loading="lazy">
+            <span class="book-badge">Language &amp; Grammar</span>
+          </div>
+          <div class="book-content">
+            <div class="book-meta-top">
+              <span class="book-collection-tag">Reading Guides</span>
+              <span class="book-size-tag"><svg class="icon-inline" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>316 KB</span>
+            </div>
+            <h3 class="book-title"><a href="data/early-modern-english-quick-guide.epub" download>Reading Old English Scripture: A Quick Guide</a></h3>
+            <p class="book-subtitle">Easy Help with Thou, Ye, -eth, and the Vocabulary of KJV &amp; Book of Mormon</p>
+            <p class="book-description">Concise, reader-friendly handbook on Early Modern English pronouns, verb inflections, syntax, and false friends.</p>
+            <div class="book-actions">
+              <a class="btn btn-primary" href="data/early-modern-english-quick-guide.epub" download title="Download Reading Old English Scripture: A Quick Guide">
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+                <span>Download EPUB</span>
+              </a>
+              <button type="button" class="btn btn-secondary btn-details" data-open-modal="early-modern-english-quick-guide" aria-label="View details for Reading Old English Scripture: A Quick Guide">
+                <span>Details</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon">🔍</div>
+        <h3>No matching editions found</h3>
+        <p>Try searching with another keyword or resetting the category filter.</p>
+        <button type="button" id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Read / Send to Kindle Guide -->
+  <section id="how-to-read" class="guide-section">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-eyebrow">Device Compatibility</span>
+        <h2 class="section-title">How to Read on Your Device</h2>
+        <p class="section-lede">All editions are packaged according to official IDPF EPUB 3.3 standards with bidirectional pop-up footnote markup and high-resolution covers.</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-icon">📱</div>
+          <h3>Amazon Kindle (Paperwhite, Oasis, Scribe, App)</h3>
+          <p>The fastest way to load onto your Kindle is via Amazon's official web tool:</p>
+          <ol>
+            <li>Download the desired <code>.epub</code> from this page.</li>
+            <li>Go to <a href="https://www.amazon.com/sendtokindle" target="_blank" rel="noopener">amazon.com/sendtokindle</a> and sign in.</li>
+            <li>Drag &amp; drop the <code>.epub</code> file. In 1–2 minutes, it will automatically sync to your Kindle library with covers and native pop-up notes!</li>
+          </ol>
+          <div class="guide-tip">
+            <strong>Pro-tip:</strong> You can also send the file as an email attachment directly to your <code>@kindle.com</code> email address.
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">🍎</div>
+          <h3>Apple Books (iPhone, iPad, Mac)</h3>
+          <p>Seamless one-tap integration with iOS and macOS devices:</p>
+          <ol>
+            <li>Click <strong>Download EPUB</strong> on your iPhone, iPad, or Mac.</li>
+            <li>When prompted, tap <em>Open in Books</em>.</li>
+            <li>The book is automatically added to your library and syncs across all your Apple devices via iCloud with progress and bookmark saving.</li>
+          </ol>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">📖</div>
+          <h3>Kobo, Android &amp; Third-Party Readers</h3>
+          <p>Compatible with all modern e-ink readers and mobile apps:</p>
+          <ol>
+            <li><strong>Kobo:</strong> Connect via USB and drag into the Kobo drive, or download directly via the experimental browser.</li>
+            <li><strong>Android:</strong> Open directly in apps like <em>Google Play Books</em>, <em>ReadEra</em>, <em>Moon+ Reader</em>, or <em>PocketBook</em>.</li>
+          </ol>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">💻</div>
+          <h3>PC &amp; Mac Desktop Reading</h3>
+          <p>For research and reference on desktop computers:</p>
+          <ol>
+            <li><strong>Thorium Reader</strong> (Recommended, free &amp; open-source): Built specifically for accessibility and pure EPUB3 conformance.</li>
+            <li><strong>Calibre</strong>: Great for managing large digital libraries and converting formats.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Standards / About Proteus -->
+  <section id="about" class="about-section">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-eyebrow">Publishing Technology</span>
+        <h2 class="section-title">The Proteus Publishing Standard</h2>
+        <p class="section-lede">What makes these editions fundamentally different from raw scans or automated web exports?</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">✨</div>
+          <h4>Kindle Paperwhite Pop-Up Footnotes</h4>
+          <p>Every scripture cross-reference, textual variant, and Hebrew/Greek etymology uses reciprocal <code>&lt;a epub:type="noteref"&gt;</code> and <code>&lt;aside epub:type="footnote"&gt;</code> pairs. Tap any note to see an instant modal card on your Kindle without losing your reading location.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🎨</div>
+          <h4>Proteus Scriptorium Cover Suite</h4>
+          <p>Each volume carries a bespoke high-DPI (1200×1920) cover rendered with 2× supersampled Lanczos filtering, classical scriptorium medallion artwork, and thematic series color palettes.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <h4>W3C epubcheck 5.3.0 Verified</h4>
+          <p>Every compiled volume passes the official W3C / IDPF Java EPUBCheck validation suite with zero errors and zero warnings. Valid XHTML5, verified internal links, and strict XML well-formedness.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🔤</div>
+          <h4>Smart Typography Engine</h4>
+          <p>Clean typographic normalizations: curly quotation marks, proper em-dashes, non-breaking spaces before verse locators, and dark-mode resilient typography.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attribution & Public Domain -->
+  <section id="attribution" class="attribution-section">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-eyebrow">Academic Heritage &amp; Notice</span>
+        <h2 class="section-title">Sources, Attribution &amp; Non-Commercial Notice</h2>
+      </div>
+
+      <div class="attribution-card">
+        <ul class="attribution-list">
+          <li>
+            <strong>Non-Profit &amp; Educational Mission:</strong> All Proteus editions hosted here are distributed strictly free of charge for personal, non-commercial, and educational study.
+          </li>
+          <li>
+            <strong>Public-Domain Textual Foundations:</strong> Canonical texts (1769 King James Bible, 1830–1920 Book of Mormon, pre-1929 Doctrine &amp; Covenants and Pearl of Great Price), historical Restoration volumes (1833–1927, via Project Gutenberg and the Mormon Documentation Project), and the Apocrypha &amp; Pseudepigrapha corpora (R. H. Charles, M. R. James, Richard Laurence, Ante-Nicene Fathers) are derived from public-domain sources.
+          </li>
+          <li>
+            <strong>Academic Project Attribution:</strong> We express deep gratitude to the <a href="https://onoma.lib.byu.edu/" target="_blank" rel="noopener">BYU Book of Mormon Onomasticon Project</a> (ed. Paul Y. Hoskisson), the <a href="https://scriptures.byu.edu/" target="_blank" rel="noopener">BYU Scripture Citation Index</a> (Stephen W. Liddle &amp; Richard C. Galbraith), Grant Hardy's OpenScripture 1830–2013 collation, and the Internet Sacred Text Archive.
+          </li>
+          <li>
+            <strong>Independent Status:</strong> Proteus is an independent, non-commercial educational project. It is not affiliated with, endorsed by, or sponsored by The Church of Jesus Christ of Latter-day Saints or Brigham Young University.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <p class="footer-brand">✦ Proteus Scriptorium</p>
+        <p class="footer-tagline">Crafted for serious scripture study and distraction-free digital reading.</p>
+      </div>
+      <div class="footer-right">
+        <p>100% Free &amp; Open Source · Hosted on GitHub Pages</p>
+        <p><a href="https://github.com/michaelrussell4/proteus-project" target="_blank" rel="noopener">View GitHub Repository</a> · <a href="#top">Back to Top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Book Details Modal (Native HTML <dialog>) -->
+  <dialog id="book-modal" class="book-modal" aria-labelledby="modal-book-title" closedby="any">
+    <div class="modal-card">
+      <header class="modal-header">
+        <span id="modal-book-badge" class="book-badge"></span>
+        <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close dialog">×</button>
+      </header>
+      
+      <div class="modal-body">
+        <div class="modal-cover-column">
+          <img id="modal-book-cover" class="modal-cover" src="" alt="Book cover">
+          <a id="modal-download-btn" class="btn btn-primary btn-full-width" href="" download>
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a.75.75 0 01.75.75v8.69l2.72-2.72a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l2.72 2.72V2.75A.75.75 0 0110 2zM3 13.75A.75.75 0 013.75 13h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.75z" clip-rule="evenodd"/></svg>
+            <span id="modal-download-text">Download EPUB</span>
+          </a>
+          <span id="modal-book-size" class="modal-file-size"></span>
+        </div>
+
+        <div class="modal-info-column">
+          <div class="modal-meta-row">
+            <span id="modal-book-collection" class="book-collection-tag"></span>
+            <span id="modal-book-creator" class="modal-creator-tag"></span>
+          </div>
+
+          <h2 id="modal-book-title" class="modal-title"></h2>
+          <p id="modal-book-subtitle" class="modal-subtitle"></p>
+
+          <div class="modal-section">
+            <h4 class="modal-section-title">Overview</h4>
+            <p id="modal-book-desc" class="modal-desc"></p>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-section-title">Key Highlights</h4>
+            <ul id="modal-book-highlights" class="modal-highlights-list"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-section-title">Contents &amp; Scope</h4>
+            <p id="modal-book-contents" class="modal-contents-desc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Embed catalog JSON for instantaneous client-side access -->
+  <script type="application/json" id="catalog-data">
+[
+  {
+    "id": "book-of-mormon-master-study",
+    "slug": "book-of-mormon-master-study",
+    "title": "The Book of Mormon: Master Study Edition",
+    "subtitle": "Red-Letter Divine Speech, BYU Onomasticon Etymologies & 19th-Century Discourse Citations",
+    "collection": "study-editions",
+    "collection_label": "Study Editions",
+    "badge": "Flagship Study Edition",
+    "file": "data/book-of-mormon-master-study.epub",
+    "cover": "covers/book-of-mormon-master-study.png",
+    "size_bytes": 5694678,
+    "size_human": "5.69 MB",
+    "creator": "Proteus Relational Publishing Engine",
+    "short_desc": "The flagship relational study volume combining red-letter speech of Christ (\u2726), linguistic name etymologies (\u25c8), and early Restoration sermon citations ([\u2605]).",
+    "full_desc": "The ultimate relational study edition for the Book of Mormon. Unites three scholarly layers into a seamless Kindle Paperwhite reading experience: 1) Red-Letter divine speech for Jesus Christ and Jehovah (\u2726), 2) BYU Book of Mormon Onomasticon etymology notes for every proper name and toponym (\u25c8), and 3) Pre-1960 public-domain discourse citations ([\u2605]) connecting verses directly to early sermons in the Journal of Discourses and Teachings of the Prophet Joseph Smith.",
+    "highlights": [
+      "Red-letter divine speech highlights for Christ and the Father",
+      "BYU Onomasticon linguistic root definitions for all proper names",
+      "Pre-1960 sermon citation cross-references and excerpts",
+      "Over 4,000 interactive modal pop-up footnotes"
+    ],
+    "contents_summary": "Complete 2013 canonical text with integrated critical apparatus, onomasticon lexical commentary, and historical discourse cross-references."
+  },
+  {
+    "id": "lds-standard-works-minimalist",
+    "slug": "lds-standard-works-minimalist",
+    "title": "The Standard Works (Minimalist Edition)",
+    "subtitle": "The Old Testament \u2022 The New Testament \u2022 The Book of Mormon \u2022 The Doctrine and Covenants \u2022 The Pearl of Great Price",
+    "collection": "standard-works",
+    "collection_label": "The Standard Works",
+    "badge": "Complete Canon Omnibus",
+    "file": "data/lds-standard-works-minimalist.epub",
+    "cover": "covers/lds-standard-works-minimalist.png",
+    "size_bytes": 3954520,
+    "size_human": "3.95 MB",
+    "creator": "The Church of Jesus Christ of Latter-day Saints",
+    "short_desc": "All five scriptural volumes in one file, formatted for clean, distraction-free reading with verse numbers.",
+    "full_desc": "The complete scriptural canon of The Church of Jesus Christ of Latter-day Saints formatted specifically for readers who want clean, distraction-free typography without study notes, cross-reference superscripts, or commentary. Retains standard chapters and verse numbers with fast jumping between books.",
+    "highlights": [
+      "All 5 standard works in a single lightweight file",
+      "High-contrast typography tuned for e-ink displays",
+      "Fast chapter navigation via deep hierarchical table of contents",
+      "Zero footnote distractions for pure immersion reading"
+    ],
+    "contents_summary": "Genesis through Malachi, Matthew through Revelation, 1 Nephi through Moroni, D&C Sections 1\u2013138 & Declarations, Moses, Abraham, JS-Matthew, JS-History, and Articles of Faith."
+  },
+  {
+    "id": "complete-apocrypha-pseudepigrapha-compendium",
+    "slug": "complete-apocrypha-pseudepigrapha-compendium",
+    "title": "Complete Apocrypha & Pseudepigrapha Compendium",
+    "subtitle": "Deuterocanon, Enochic Literature, Second Temple Pseudepigrapha, NT Apocrypha & Apostolic Fathers",
+    "collection": "apocrypha",
+    "collection_label": "Apocrypha & Ancient Texts",
+    "badge": "99 Ancient Works",
+    "file": "data/complete-apocrypha-pseudepigrapha-compendium.epub",
+    "cover": "covers/complete-apocrypha-pseudepigrapha-compendium.png",
+    "size_bytes": 3567103,
+    "size_human": "3.56 MB",
+    "creator": "R. H. Charles, M. R. James, Richard Laurence (Translators)",
+    "short_desc": "99 extra-canonical and Second Temple texts (1.27M words) with historical provenance and veracity dossiers for each book.",
+    "full_desc": "A monumental 99-book extra-canonical library uniting the 1611 KJV Apocrypha, R.H. Charles Pseudepigrapha (1 Enoch, Jubilees, Testaments of the Twelve Patriarchs), Dead Sea Scrolls parallels, early Christian writings, and 37 ancient texts from pseudepigrapha.com. Every book opens with a dedicated 'Source, Provenance & Historical Veracity' dossier summarizing manuscript transmission and academic consensus.",
+    "highlights": [
+      "99 complete ancient works in a single unified volume",
+      "1,376 chapters and 1,169 pop-up scholarly notes",
+      "Historical Veracity & Provenance dossiers for every book",
+      "Zero duplicate entries, carefully harmonized typography"
+    ],
+    "contents_summary": "15 KJV Deuterocanonical books, 1 Enoch, Jubilees, Jasher, Testaments of 12 Patriarchs, Psalms of Solomon, 2 Baruch, 4 Ezra, Gospel of Nicodemus, Shepherd of Hermas, Clement, Didache, and 70+ additional Second Temple texts."
+  },
+  {
+    "id": "complete-lds-literature-compendium",
+    "slug": "complete-lds-literature-compendium",
+    "title": "The Complete Restoration Literature Compendium",
+    "subtitle": "All 71 Historical Volumes of Early Latter-day Saint Theology, History & Discourse",
+    "collection": "literature",
+    "collection_label": "Restoration Literature",
+    "badge": "71 Volumes Omnibus",
+    "file": "data/complete-lds-literature-compendium.epub",
+    "cover": "covers/complete-lds-literature-compendium.png",
+    "size_bytes": 15218396,
+    "size_human": "15.2 MB",
+    "creator": "Joseph Smith Jr., B. H. Roberts, James E. Talmage, Parley P. Pratt, et al.",
+    "short_desc": "Comprehensive 71-volume library (5.91M words) spanning foundational theology, history, journals, and pioneer writings.",
+    "full_desc": "An unprecedented single-file electronic library containing all 71 landmark public-domain works of 19th and early-20th-century Restoration history and theology. Organized into seven thematic divisions: Foundational Theology, Doctrinal Treatises, Church History, Biographies, Discourses, Defense & Polemics, and the Faith-Promoting Series. Features 3,276 recovered inline pop-up footnotes and clean hierarchical navigation.",
+    "highlights": [
+      "71 full books across 1,982 chapters (5.91M words)",
+      "7 structured thematic divisions with master table of contents",
+      "3,276 interactive pop-up footnotes and source citations",
+      "Includes Roberts, Talmage, Pratt, Young, Smith, and Taylor"
+    ],
+    "contents_summary": "Div. 1: Foundational Theology; Div. 2: Doctrinal Treatises; Div. 3: Church History & Documentary History; Div. 4: Biographies & Autobiographies; Div. 5: Sermons & Discourses; Div. 6: Defense & Polemics; Div. 7: Faith-Promoting Series."
+  },
+  {
+    "id": "foundational-lds-classics-anthology",
+    "slug": "foundational-lds-classics-anthology",
+    "title": "Foundational Classics of the Restoration",
+    "subtitle": "A Nine-Volume Doctrinal Omnibus of Landmark Doctrinal Works",
+    "collection": "literature",
+    "collection_label": "Restoration Literature",
+    "badge": "9 Doctrinal Classics",
+    "file": "data/foundational-lds-classics-anthology.epub",
+    "cover": "covers/foundational-lds-classics-anthology.png",
+    "size_bytes": 2995000,
+    "size_human": "2.99 MB",
+    "creator": "Joseph Smith Jr., James E. Talmage, Parley P. Pratt, Brigham Young, Joseph F. Smith",
+    "short_desc": "Nine essential doctrinal works by Talmage, Pratt, and early church leaders with 3,276 pop-up notes.",
+    "full_desc": "A carefully curated 9-volume doctrinal omnibus featuring the core classics of early Latter-day Saint thought: Lectures on Faith, The Wentworth Letter, Jesus the Christ (complete chapters 1\u201342 in sequence), Articles of Faith, The House of the Lord, Key to the Science of Theology, A Voice of Warning, Discourses of Brigham Young, and Gospel Doctrine by Joseph F. Smith.",
+    "highlights": [
+      "9 foundational volumes in one unified omnibus",
+      "3,276 recovered pop-up footnotes and citations",
+      "Verified chapter sequences and complete unabridged text",
+      "Essential reading for serious gospel scholarship"
+    ],
+    "contents_summary": "1. Lectures on Faith (1835); 2. The Wentworth Letter (1842); 3. Jesus the Christ (1915); 4. The Articles of Faith (1899); 5. The House of the Lord (1912); 6. Key to the Science of Theology (1855); 7. A Voice of Warning (1837); 8. Discourses of Brigham Young (1925); 9. Gospel Doctrine (1919)."
+  },
+  {
+    "id": "book-of-mormon-historical-variants",
+    "slug": "book-of-mormon-historical-variants",
+    "title": "Book of Mormon: Historical Textual Variants",
+    "subtitle": "Word-Level Collation Across Eight Major Editions (1830\u20132013)",
+    "collection": "study-editions",
+    "collection_label": "Study Editions",
+    "badge": "Critical Apparatus",
+    "file": "data/book-of-mormon-historical-variants.epub",
+    "cover": "covers/book-of-mormon-historical-variants.png",
+    "size_bytes": 1357563,
+    "size_human": "1.35 MB",
+    "creator": "Grant Hardy (Collation), Proteus Publishing Engine",
+    "short_desc": "Comprehensive collation comparing the Book of Mormon text across eight historic editions from 1830 to 2013.",
+    "full_desc": "Based on collation data from Grant Hardy's BYU OpenScripture project, this critical edition marks historical variations across the 1830, 1837, 1840, 1841, 1879, 1920, 1981, and 2013 printings. Tap any flagged word or phrase to view an immediate pop-up apparatus detailing which printings altered the word, orthography, or grammar.",
+    "highlights": [
+      "Covers 8 major print editions from 1830 to 2013",
+      "Inline critical apparatus via Kindle pop-ups",
+      "Grammar, orthography, and word substitutions tracked",
+      "Scholarly preface explaining editorial history"
+    ],
+    "contents_summary": "Complete Book of Mormon text with thousands of embedded variant indicators linked to instant modal apparati."
+  },
+  {
+    "id": "book-of-mormon-1830-narrative",
+    "slug": "book-of-mormon-1830-narrative",
+    "title": "The Book of Mormon (1830 Edition)",
+    "subtitle": "Continuous Narrative Edition",
+    "collection": "standard-works",
+    "collection_label": "The Standard Works",
+    "badge": "1830 Palmyra Text",
+    "file": "data/book-of-mormon-1830-narrative.epub",
+    "cover": "covers/book-of-mormon-1830-narrative.png",
+    "size_bytes": 1028748,
+    "size_human": "1.02 MB",
+    "creator": "Joseph Smith Jr. (Translator)",
+    "short_desc": "The original 1830 Palmyra edition formatted as a continuous literary narrative without modern verse breaks, with tap-to-see verse ranges.",
+    "full_desc": "Experience the Book of Mormon as its first readers did in 1830. Rather than small two-sentence verses, the text flows naturally in paragraphs according to the original 1830 chapter divisions. To preserve study capability, discrete verse ranges are accessible via bidirectional pop-up notes without cluttering the page.",
+    "highlights": [
+      "Original 1830 chapter arrangements and continuous prose",
+      "Bidirectional pop-up verse references",
+      "Uncluttered reading experience optimized for Kindle",
+      "Original preface and historical testimony pages"
+    ],
+    "contents_summary": "First Book of Nephi through Book of Moroni, formatted in original 1830 chapter groupings with modern verse range pop-ups."
+  },
+  {
+    "id": "top-1000-cited-verses",
+    "slug": "top-1000-cited-verses",
+    "title": "The Top 1,000 Cited Verses of the Restoration",
+    "subtitle": "Ranked by 19th-Century Citation Frequency (1830\u20131886) with Sermon Profiles",
+    "collection": "study-editions",
+    "collection_label": "Study Editions",
+    "badge": "Historical Analytics",
+    "file": "data/top-1000-cited-verses.epub",
+    "cover": "covers/top-1000-cited-verses.png",
+    "size_bytes": 2487549,
+    "size_human": "2.48 MB",
+    "creator": "Proteus Relational Scripture Engine",
+    "short_desc": "The most-quoted scriptures in early Restoration history, ranked by frequency with pop-up discourse excerpts.",
+    "full_desc": "Which scripture passages shaped the sermons and theology of the early Church? Drawing on the BYU Scripture Citation Index, this volume ranks the top 1,000 cited verses across the Journal of Discourses (vols. 1\u201326) and Teachings of the Prophet Joseph Smith. Tap any verse to view speaker frequency statistics, context notes, and full historical sermon excerpts in pop-ups.",
+    "highlights": [
+      "Ranked list of the top 1,000 cited scriptures (1830\u20131886)",
+      "Speaker citation breakdown (Brigham Young, John Taylor, Orson Pratt, etc.)",
+      "Historical discourse excerpts embedded in pop-up notes",
+      "Fascinating statistical window into early Church preaching"
+    ],
+    "contents_summary": "Top 1,000 scripture passages organized by citation rank, featuring full discourse citations, speaker percentages, and sermon transcripts."
+  },
+  {
+    "id": "scriptures",
+    "slug": "scriptures",
+    "title": "The Scriptures (Minimal Canon)",
+    "subtitle": "Clean, High-Contrast Kindle Edition of the LDS Canon",
+    "collection": "standard-works",
+    "collection_label": "The Standard Works",
+    "badge": "Fast-Navigation Canon",
+    "file": "data/scriptures.epub",
+    "cover": "covers/scriptures.jpg",
+    "size_bytes": 3075461,
+    "size_human": "3.07 MB",
+    "creator": "The Church of Jesus Christ of Latter-day Saints",
+    "short_desc": "High-contrast, lightweight single-volume edition of the LDS canon engineered for rapid e-ink navigation.",
+    "full_desc": "An ultralight, rapid-load single-volume edition of the LDS canon (Old Testament, New Testament, Book of Mormon, Doctrine and Covenants, Pearl of Great Price). Engineered with minimal DOM overhead for snappy page turns and rapid chapter jumping even on older Kindle and e-reader hardware.",
+    "highlights": [
+      "Ultra-lightweight DOM footprint for maximum battery & page speed",
+      "Instant book-to-chapter index",
+      "Classic typography with drop caps and clear verse anchors",
+      "Perfect for daily canon reading"
+    ],
+    "contents_summary": "Old Testament (39 books), New Testament (27 books), Book of Mormon (15 books), Doctrine and Covenants, and Pearl of Great Price."
+  },
+  {
+    "id": "bom-intertextual-parallels",
+    "slug": "bom-intertextual-parallels",
+    "title": "Book of Mormon Intertextual Parallels",
+    "subtitle": "Word-Level Collation of Brass Plates Isaiah & The Sermon at the Temple Against the King James Bible",
+    "collection": "study-editions",
+    "collection_label": "Study Editions",
+    "badge": "Intertextual Collation",
+    "file": "data/bom-intertextual-parallels.epub",
+    "cover": "covers/bom-intertextual-parallels.png",
+    "size_bytes": 357506,
+    "size_human": "358 KB",
+    "creator": "Proteus Intertextual Alignment Engine",
+    "short_desc": "Side-by-side textual collation of Brass Plates Isaiah (2 Nephi 12\u201324) and the Sermon at the Temple (3 Nephi 12\u201314) against the King James Bible.",
+    "full_desc": "A specialized scholarly edition designed to explore intertextual connections and textual divergence between the Book of Mormon and the King James Version of the Bible. Features interlinear and pop-up textual comparisons highlighting unique insertions, deletions, and doctrinal expansions present on the Nephite records compared to the Masoretic Text / KJV.",
+    "highlights": [
+      "Side-by-side Isaiah 2\u201314 and Matthew 5\u20137 comparisons",
+      "Word-level markup of variants and expansions",
+      "Instant Kindle pop-up collation notes",
+      "Optimized for e-ink contrast"
+    ],
+    "contents_summary": "Section 1: The Brass Plates Isaiah Corpus (2 Nephi 12\u201324 parallel with Isaiah 2\u201314); Section 2: The Sermon at the Temple (3 Nephi 12\u201314 parallel with Matthew 5\u20137)."
+  },
+  {
+    "id": "early-modern-english-quick-guide",
+    "slug": "early-modern-english-quick-guide",
+    "title": "Reading Old English Scripture: A Quick Guide",
+    "subtitle": "Easy Help with Thou, Ye, -eth, and the Vocabulary of KJV & Book of Mormon",
+    "collection": "reading-guides",
+    "collection_label": "Reading Guides",
+    "badge": "Language & Grammar",
+    "file": "data/early-modern-english-quick-guide.epub",
+    "cover": "covers/early-modern-english-quick-guide.png",
+    "size_bytes": 315597,
+    "size_human": "316 KB",
+    "creator": "Proteus Scriptorium",
+    "short_desc": "Concise, reader-friendly handbook on Early Modern English pronouns, verb inflections, syntax, and false friends.",
+    "full_desc": "Written for everyday readers who want to understand the language of the King James Bible and Book of Mormon with greater ease and depth. Explains grammatical distinctions like thou vs. ye, -est vs. -eth, unexpected syntax, and provides a glossary of 100+ 'false friends'\u2014words whose meanings have shifted over time\u2014plus a handy 1-page quick reference.",
+    "highlights": [
+      "Plain-language breakdowns of archaic grammar",
+      "Glossary of tricky 'false friend' vocabulary words",
+      "One-page printable / bookmarkable reference chart",
+      "Fast and accessible read (~30 minutes)"
+    ],
+    "contents_summary": "Part 1: Pronouns (Thou, Thee, Thy, Thine, Ye, You); Part 2: Verbs (-est, -eth, Didst); Part 3: False Friends (100+ words); Part 4: Hebraisms; Appendix: One-Page Reference Chart."
+  }
+]
+  </script>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
